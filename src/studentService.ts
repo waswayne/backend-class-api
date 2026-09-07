@@ -36,3 +36,13 @@ export const updateStudent = (id: number, input: studentInput): Student | undefi
     Object.assign(student, input);
     return student;
 }
+
+export const deleteStudent = (id: number): Student | undefined => {
+    const index = students.findIndex((currentStudent) => currentStudent.id === id);
+    if (index === -1) {
+        return undefined;
+    }
+    const deletedStudent = students.splice(index , 1)[0];
+    return deletedStudent;
+}
+
